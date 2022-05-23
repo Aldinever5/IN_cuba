@@ -96,7 +96,7 @@ bool IN_cuba_app::almacenarDatoDia() {
  * @return double
  */
 double IN_cuba_app::leerTemperatura() {
-    double a = rand() % 30 + 6.;
+    double a = rand() % 30 + 9.;
     return a;
 }
 
