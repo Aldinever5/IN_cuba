@@ -18,7 +18,7 @@ using namespace std;
  * @param hora
  * @param minuto
  */
-Seguidor_app::Seguidor_app(std::time_t fecha, int hora, int minuto) {
+IN_cuba_app::IN_cuba_app(std::time_t fecha, int hora, int minuto) {
     this->fecha = fecha;
     this->hora = hora;
     this->minuto = minuto;
@@ -31,7 +31,7 @@ Seguidor_app::Seguidor_app(std::time_t fecha, int hora, int minuto) {
 /**
  * @return int
  */
-int Seguidor_app::ejecutar() {
+int IN_cuba_app::ejecutar() {
 
     // Teniendo en cuenta que se utilizarán dos QTimers para el desarrollo
     // de la aplicación, se procede a crear los configurarlos y a crear los slots
@@ -64,7 +64,7 @@ void IN_cuba_app::adquirirDatos() {
  * el minuto y lo guarda en la base de datos local.
  * @return bool
  */
-bool Seguidor_app::almacenarDatoMin() {
+bool IN_cuba_app::almacenarDatoMin() {
     double  temp, hum;
     temp = hum = 0.;
     for( int i = 0; i < _datos.size(); i++ ){
