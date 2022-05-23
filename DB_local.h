@@ -13,10 +13,15 @@ DB_local();
 
 DB_local(string path);
 
- bool guadar(Temp_Hum& dato);
+ bool guadar(Sensor& dato);
   
  bool vaciasDB();
-
+ 
+ string getUsuarioRemoto();
+    string getHostRemoto();
+    string getDBNameRemoto();
+    string getPassWDRemoto();
+ 
  Temp_Hum getpromtemperatura(double temperatura);
 Temp_Hum getpromhumedad(double humedad);
 
