@@ -7,8 +7,7 @@
 #define IN_CUBA_APP_H
 
 #include "DB_local.h"
-#include "DB_remota.h"
-#include "Muestra.h"
+#include "Temp_Hum.h"
 #include <ctime>
 #include <vector>
 
@@ -37,8 +36,6 @@ private:
     IN_cuba_app();
 
     void adquirirDatos();
-
-    bool almacenarDatoMin();
 
     bool almacenarDatoDia();
 
