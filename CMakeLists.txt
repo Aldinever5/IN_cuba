@@ -11,35 +11,13 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.
-# They need to be set before the find_package(Qt5 ...) call.
+add_executable(${PROJECT_NAME} "main.cpp" "DB_local.cpp" "DB_local.h"
+"main_gui.cpp" "Sensor.cpp" "Sensor.h" "Incubadora.cpp" "Incubadora.h")
 
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
+target_link_libraries (${PROJECT_NAME} sqlite3 mysqlclient Qt5::Core )
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+add_executable(${PROJECT_NAME}_gui "main.cpp" "DB_local.cpp" "DB_local.h"
+"main_gui.cpp" "Sensor.cpp" "Sensor.h" "Incubadora.cpp" "Incubadora.h" "mainwindow.h" "mainwindow.cpp" "mainwindow.ui")
 
-if(ANDROID)
-  add_library(IN_cuba SHARED
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-  )
-else()
-  add_executable(IN_cuba
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-  )
-endif()
 
 target_link_libraries(IN_cuba PRIVATE Qt5::Widgets)
