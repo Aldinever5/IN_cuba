@@ -19,7 +19,7 @@ crearDB();
 
 }
 
-DB_local::DB_llocal(string path){
+DB_local::DB_local(string path){
 this->path = path;
 int rc;
 rc = sqlite3_open(path.c_str,&database);
