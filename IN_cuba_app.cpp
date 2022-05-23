@@ -64,7 +64,7 @@ void IN_cuba_app::adquirirDatos() {
  * el minuto y lo guarda en la base de datos local.
  * @return bool
  */
-bool IN_cuba_app::almacenarDatoMin() {
+bool IN_cuba_app::almacenarpromedio() {
     double  temp, hum;
     temp = hum = 0.;
     for( int i = 0; i < _datos.size(); i++ ){
@@ -76,7 +76,7 @@ bool IN_cuba_app::almacenarDatoMin() {
     temp /= _datos.size();
     hum  /= _datos.size();
 
-    Muestra dato(temp, hum );
+    Temp_Hum dato(temp, hum );
 
     DB_local conexion;
     bool guardo = conexion.guardar( dato );
@@ -84,13 +84,7 @@ bool IN_cuba_app::almacenarDatoMin() {
     return guardo;
 }
 
-/**
- * @return bool
- */
-bool IN_cuba_app::almacenarDatoDia() {
 
-    return false;
-}
 
 /**
  * @return double
