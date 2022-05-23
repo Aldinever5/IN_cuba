@@ -37,7 +37,7 @@ private:
 
     void adquirirDatos();
 
-    bool almacenarDatoDia();
+    bool almacenarpromedio();
 
     double leerTemperatura();
 
