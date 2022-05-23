@@ -1,12 +1,15 @@
 #include "Sensor.h"
 #include <vector>
 #include "Temp_Hum.h"
-#include "Incubadora"
-
+#include "IN_cuba_app.h"
+#include <QCoreApplication>
+#include <time.h>
+#include <iostream>
 
 void delay (int ms){
 }
-int main(){
+int main(int argc, char** argv){
+QCoreApplication a(argc, argv);
 Temp_Hum th;
 
 std::vector<Temp_Hum> _thvec;
@@ -32,6 +35,13 @@ _thvec.clear();
 delay(50);
 }while (true)
 return 0;
+std::time_t fecha = std::time(nullptr);
+    struct tm * timeinfo;
+    timeinfo = std::localtime ( &fecha );
+    std::cout << timeinfo->tm_hour << " : " << timeinfo->tm_min << endl;
+    IN_cuba_app aplicacion(fecha, timeinfo->tm_hour, timeinfo->tm_min);
+    aplicacion.ejecutar();
+    a.exec();
 }
 
 
